@@ -1,4 +1,4 @@
-/* $(`.boo`).click(function() { //works
+$(`.boo`).click(function() { //works
     console.log(`hello`)
 }) 
 
@@ -41,4 +41,3 @@ $(document).ready(function() {
         'width': '100px'
     }).insertAfter('#grocery-list');
 });
- */

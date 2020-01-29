@@ -29,14 +29,14 @@ document.addEventListener(`DOMContentLoaded`, function () {
     let div = document.createElement(`div`);
     div.classname = `h`
     document.body.appendChild(div);
-    div.style.backgroundColor = "red";
+    div.style.backgroundColor = null;
     div.style.height = "5em";
     div.style.width = "10em";
     div.addEventListener(`mouseover`, function () {
         div.style.backgroundColor = `blue`
     });
     div.addEventListener(`mouseout`, function () {
-        div.style.backgroundColor = `red`
+        div.style.backgroundColor = null
     });
 
     let p = document.createElement(`p`);
@@ -45,28 +45,61 @@ document.addEventListener(`DOMContentLoaded`, function () {
     p.appendChild(ptext);
 
     p.addEventListener(`click`,function(){
-        p.style.color = toHex(s)
+        p.style.color = getRandomColor();
+    });
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
+
+    let buttonThree = document.createElement(`button`);
+    let threeText = document.createTextNode(`My Name`);
+    let divTwo = document.createElement(`div`);
+    divTwo.id = `two`
+    buttonThree.appendChild(threeText);
+    divTwo.appendChild(buttonThree);
+    document.body.appendChild(divTwo);
+
+    buttonThree.addEventListener(`click`, function () {
+        let span = document.createElement(`span`);
+        let spnText = document.createTextNode(`Chase Graffeo `);
+        span.appendChild(spnText);
+        two.append(span);
+        
+        
+        
+    });
+
+    let buttonFour = document.createElement(`button`);
+    let fourText = document.createTextNode(`Friends Name`);
+    let divThree = document.createElement(`div`);
+    //let ul = document.createElement(`ul`)
+    //divThree.appendChild(ul)
+    buttonFour.appendChild(fourText);
+    divThree.appendChild(buttonFour);
+    document.body.appendChild(divThree); 
+
+    let friends = [`Liam`,`Brie`,`Tanner`,`Bailey`,`Anna`,`Hetal`,`Goku`,`Gohan`,`Light`,`Tidus`]
+
+    buttonFour.addEventListener(`click`, function(){
+        let randomIndex = Math.floor(Math.random() * 10);
+        let randomFriend = friends[randomIndex];
+        let li = document.createElement(`li`);
+        li.textContent = randomFriend;
+        divThree.append(li);
     })
 
-/* function toHex(s) {
-        {
-            if (s.substr(0, 2).toLowerCase() == "0x") {
-                return s;
-            }
-
-            var l = "0123456789ABCDEF";
-            var o = "";
-
-            if (typeof s != "string") {
-                s = s.toString();
-            }
-            for (var i = 0; i < s.length; i++) {
-                var c = s.charCodeAt(i);
-
-                o = o + l.substr((c >> 4), 1) + l.substr((c & 0x0f), 1);
-            }
-
-            return "0x" + o;
-        }
-    } */
 })
+ /*    let friendsButton = document.getElementById('add-my-friends-btn');
+    buttonFour.addEventListener('click', function() {
+        let friendsList = document.getElementById('friends-list');
+        let randomIndex = Math.floor(Math.random() * 10);
+        let randomFriend = friends[randomIndex];
+        let friendListItem = document.createElement('li');
+        friendListItem.textContent = randomFriend;
+        friendsList.append(friendListItem); */
