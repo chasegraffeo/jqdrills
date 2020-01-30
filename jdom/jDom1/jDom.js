@@ -22,9 +22,9 @@ document.addEventListener(`DOMContentLoaded`, function () {
         alert(`ALLMIGHT!!`);
     });
 
-    buton.addEventListener('click', () => {
+    buton.addEventListener('click', function() {
         alert(input.value)
-    })
+    });
 
     let div = document.createElement(`div`);
     div.classname = `h`
@@ -95,11 +95,3 @@ document.addEventListener(`DOMContentLoaded`, function () {
     })
 
 })
- /*    let friendsButton = document.getElementById('add-my-friends-btn');
-    buttonFour.addEventListener('click', function() {
-        let friendsList = document.getElementById('friends-list');
-        let randomIndex = Math.floor(Math.random() * 10);
-        let randomFriend = friends[randomIndex];
-        let friendListItem = document.createElement('li');
-        friendListItem.textContent = randomFriend;
-        friendsList.append(friendListItem); */
